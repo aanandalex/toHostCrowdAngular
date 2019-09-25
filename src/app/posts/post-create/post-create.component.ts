@@ -16,7 +16,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
   isLoading = false;
   mode = 'create';
   postId: string;
-  post: Array<Object> = [];
+  post: Array<any> = [];
   authStatusSub: Subscription;
 
   constructor(public postService: PostsService, public route: ActivatedRoute,public authService: AuthService, public router: Router) { }

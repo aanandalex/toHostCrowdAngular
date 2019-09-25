@@ -1,0 +1,22 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card *ngIf="!isLoading">
+    <mat-card-title>
+        <h2>{{ name }}</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p>Balance in Your Wallet</p>
+        <h1>{{userWallet}}</h1>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form (submit)="onDonation(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+        <mat-form-field>
+            <input matInput type="number" name="donation" placeholder="Donation" ngModel required minlength="3"
+                #donationInput="ngModel">
+            <mat-error *ngIf="donationInput.invalid">Please fill Donation</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Donate</button>
+    </form>
+</mat-card>

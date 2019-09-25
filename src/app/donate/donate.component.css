@@ -1,0 +1,17 @@
+mat-card {
+    margin: 5rem auto;
+    width: 80%;
+}
+
+mat-form-field,
+textarea {
+    width: 100%;
+}
+
+mat-spinner {
+    margin: auto;
+}
+
+h1 {
+    color: red;
+}

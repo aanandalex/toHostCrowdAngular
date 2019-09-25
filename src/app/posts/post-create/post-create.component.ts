@@ -34,7 +34,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
       })
     } else {
       console.log("Update function update to service", form.value);
-      this.postService.updateProject(this.postId,form.value).subscribe((Response: Array<Object>) => {
+      this.postService.updateProject(this.postId,form.value).subscribe((Response: Array<any>) => {
         this.isLoading = false;
         this.router.navigate(["/"]);
       })
@@ -53,7 +53,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         this.mode = 'edit';
         this.postId = paramMap.get('postId');
         this.isLoading = true;
-        this.postService.editProject(this.postId).subscribe((Response:Array<object>) => {
+        this.postService.editProject(this.postId).subscribe((Response:Array<any>) => {
           this.isLoading = false;
           this.post = Response;
         })

@@ -10,15 +10,14 @@ export class DashComponent implements OnInit {
 
   success: number;
   crowdfunding: number;
+  successPer: number = 0;
+  crowdfund: number = 0;
   total: number;
   title = 'Crowd Funded Projects';
   type = 'PieChart';
-  data = [
-    ['Success', 75],
-    ['CrowdFunding', 25]
-  ];
-
-
+  data1: Array<any> = [];
+  a1: Array<any> = ['Projects Successful'];
+  a2: Array<any> = ['CrowdFunding Projects'];
   columnNames = ['Projects', 'Percentage'];
   options = {};
   width = 550;
@@ -47,6 +46,16 @@ export class DashComponent implements OnInit {
       this.isLoading = false;
       this.total = Response.length;
     })
+
+    setTimeout(()=>{
+      this.isLoading = true;
+      this.successPer = Math.round((this.success/this.total)*100);
+      this.crowdfund = Math.round((this.crowdfunding/this.total)*100);
+      this.a1.push(this.successPer);
+      this.a2.push(this.crowdfund);
+      this.data1.push(this.a1);
+      this.data1.push(this.a2);
+    }, 3000,this.isLoading = false);
   }
 
 }
